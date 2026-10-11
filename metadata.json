@@ -1,0 +1,6 @@
+{
+  "name": "AlumniConnect - Alumni Management System",
+  "description": "Comprehensive Alumni Management System featuring member directory, profile updates, event registration tracking, analytics, and full DDL/DML database console with lab setup instructions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

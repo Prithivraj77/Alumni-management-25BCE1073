@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "AlumniMember": {
+      "title": "AlumniMember",
+      "description": "Registered alumni member profile and employment records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 120 },
+        "role": { "type": "string", "enum": ["alumni", "student", "admin"] },
+        "avatar": { "type": "string" },
+        "gradYear": { "type": "number" },
+        "degree": { "type": "string", "maxLength": 100 },
+        "department": { "type": "string", "maxLength": 80 },
+        "company": { "type": "string", "maxLength": 100 },
+        "designation": { "type": "string", "maxLength": 100 },
+        "industry": { "type": "string", "maxLength": 100 },
+        "location": { "type": "string", "maxLength": 120 },
+        "bio": { "type": "string", "maxLength": 1000 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "linkedin": { "type": "string" },
+        "github": { "type": "string" },
+        "isMentor": { "type": "boolean" },
+        "mentorshipTopics": { "type": "array" },
+        "skills": { "type": "array" },
+        "joinedDate": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "gradYear", "department"]
+    },
+    "AlumniEvent": {
+      "title": "AlumniEvent",
+      "description": "Alumni reunions, lectures, webinars and networking events",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 2000 },
+        "category": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "venue": { "type": "string", "maxLength": 150 },
+        "isVirtual": { "type": "boolean" },
+        "meetingLink": { "type": "string" },
+        "capacity": { "type": "number" },
+        "registeredCount": { "type": "number" },
+        "bannerUrl": { "type": "string" },
+        "speaker": { "type": "object" },
+        "organizer": { "type": "string" },
+        "tags": { "type": "array" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "title", "category", "date", "capacity"]
+    },
+    "EventRegistration": {
+      "title": "EventRegistration",
+      "description": "Registration and ticket reservation records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "eventId": { "type": "string" },
+        "eventTitle": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userRole": { "type": "string" },
+        "registrationDate": { "type": "string" },
+        "ticketCode": { "type": "string" },
+        "status": { "type": "string" },
+        "attendanceMode": { "type": "string" }
+      },
+      "required": ["id", "eventId", "userId", "ticketCode", "status"]
+    },
+    "MentorshipRequest": {
+      "title": "MentorshipRequest",
+      "description": "Student-to-alumni mentorship inquiries and responses",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "studentEmail": { "type": "string" },
+        "studentDegree": { "type": "string" },
+        "studentGradYear": { "type": "number" },
+        "alumniId": { "type": "string" },
+        "alumniName": { "type": "string" },
+        "topic": { "type": "string" },
+        "message": { "type": "string", "maxLength": 1000 },
+        "status": { "type": "string" },
+        "requestedAt": { "type": "string" },
+        "responseNote": { "type": "string" }
+      },
+      "required": ["id", "studentId", "alumniId", "topic", "status"]
+    },
+    "JobPosting": {
+      "title": "JobPosting",
+      "description": "Job openings and career referrals posted by alumni",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "maxLength": 150 },
+        "company": { "type": "string", "maxLength": 100 },
+        "location": { "type": "string", "maxLength": 100 },
+        "type": { "type": "string" },
+        "postedByAlumniId": { "type": "string" },
+        "postedByName": { "type": "string" },
+        "salaryRange": { "type": "string" },
+        "description": { "type": "string", "maxLength": 2000 },
+        "skills": { "type": "array" },
+        "applyLink": { "type": "string" },
+        "postedDate": { "type": "string" },
+        "deadline": { "type": "string" }
+      },
+      "required": ["id", "title", "company", "type", "applyLink"]
+    }
+  },
+  "firestore": {
+    "/alumni_members/{memberId}": {
+      "schema": { "$ref": "#/entities/AlumniMember" },
+      "description": "Alumni member profiles"
+    },
+    "/alumni_events/{eventId}": {
+      "schema": { "$ref": "#/entities/AlumniEvent" },
+      "description": "Alumni events and attendance counts"
+    },
+    "/event_registrations/{registrationId}": {
+      "schema": { "$ref": "#/entities/EventRegistration" },
+      "description": "Event ticket registrations"
+    },
+    "/mentorship_requests/{requestId}": {
+      "schema": { "$ref": "#/entities/MentorshipRequest" },
+      "description": "Mentorship connection requests"
+    },
+    "/job_postings/{jobId}": {
+      "schema": { "$ref": "#/entities/JobPosting" },
+      "description": "Job and internship referrals"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global fallback
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Connection testing
+    match /test/{testId} {
+      allow read, write: if true;
+    }
+
+    // Alumni Members collection
+    match /alumni_members/{memberId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // Alumni Events collection
+    match /alumni_events/{eventId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // Event Registrations collection
+    match /event_registrations/{registrationId} {
+      allow read: if true;
+      allow create, update, delete: if true;
+    }
+
+    // Mentorship Requests collection
+    match /mentorship_requests/{requestId} {
+      allow read: if true;
+      allow create, update, delete: if true;
+    }
+
+    // Job Postings collection
+    match /job_postings/{jobId} {
+      allow read: if true;
+      allow create, update, delete: if true;
+    }
+  }
+}
