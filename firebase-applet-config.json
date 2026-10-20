@@ -1,10 +1,12 @@
 {
   "projectId": "alumni-management-portal-69471",
-  "appId": "1:894524388277:web:8b74ee6312c1fd3cfe1ffc",
+  "appId": "1:894524388277:web:58b90d44c4f042bdfe1ffc",
   "apiKey": "AIzaSyDxX7EcCTyMLlBLkcjhUwr9iwz2bPQycyM",
   "authDomain": "alumni-management-portal-69471.firebaseapp.com",
-  "firestoreDatabaseId": "(default)",
+  "firestoreDatabaseId": "ai-studio-alumniconnectalu-40802ef2-596c-4e91-9347-c6afda61c8c8",
   "storageBucket": "alumni-management-portal-69471.firebasestorage.app",
   "messagingSenderId": "894524388277",
-  "measurementId": "G-DHZKCXQ5KR"
+  "measurementId": "",
+  "oAuthClientId": "894524388277-1gfp0ig8742jqevuvv8lg8s1hdjst3va.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
 }
